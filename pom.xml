@@ -1,10 +1,17 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.prakhar</groupId>
-  <artifactId>FlightBooking</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <dependencies>
-  <!-- Selenium -->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+<modelVersion>4.0.0</modelVersion>
+
+<groupId>com.prakhar</groupId>
+<artifactId>FlightBooking</artifactId>
+<version>0.0.1-SNAPSHOT</version>
+
+<dependencies>
+
+<!-- Selenium -->
 <dependency>
 <groupId>org.seleniumhq.selenium</groupId>
 <artifactId>selenium-java</artifactId>
@@ -16,7 +23,6 @@
 <groupId>org.testng</groupId>
 <artifactId>testng</artifactId>
 <version>7.9.0</version>
-<scope>test</scope>
 </dependency>
 
 <!-- WebDriver Manager -->
@@ -26,17 +32,18 @@
 <version>5.7.0</version>
 </dependency>
 
-<!-- Apache POI Excel -->
+<!-- Apache POI -->
 <dependency>
 <groupId>org.apache.poi</groupId>
 <artifactId>poi-ooxml</artifactId>
 <version>5.2.5</version>
 </dependency>
 
+<!-- Commons IO -->
 <dependency>
- <groupId>commons-io</groupId>
- <artifactId>commons-io</artifactId>
- <version>2.15.1</version>
+<groupId>commons-io</groupId>
+<artifactId>commons-io</artifactId>
+<version>2.15.1</version>
 </dependency>
 
 <!-- Extent Report -->
@@ -45,5 +52,24 @@
 <artifactId>extentreports</artifactId>
 <version>5.1.1</version>
 </dependency>
-  </dependencies>
+
+</dependencies>
+
+<build>
+<plugins>
+
+<plugin>
+<groupId>org.apache.maven.plugins</groupId>
+<artifactId>maven-surefire-plugin</artifactId>
+<version>3.2.5</version>
+<configuration>
+<suiteXmlFiles>
+<suiteXmlFile>testng.xml</suiteXmlFile>
+</suiteXmlFiles>
+</configuration>
+</plugin>
+
+</plugins>
+</build>
+
 </project>

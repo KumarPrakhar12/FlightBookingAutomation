@@ -1,0 +1,17 @@
+<suite name="FlightBookingSuite">
+
+<listeners>
+<listener class-name="listeners.TestListener"/>
+</listeners>
+
+<test name="FlightBookingTest">
+
+<classes>
+
+<class name="tests.FlightBookingTest"/>
+
+</classes>
+
+</test>
+
+</suite>

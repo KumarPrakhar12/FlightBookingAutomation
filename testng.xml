@@ -1,14 +1,15 @@
-<suite name="FlightBookingSuite">
+<suite name="FlightBookingSuite" parallel="classes" thread-count="2">
 
 <listeners>
 <listener class-name="listeners.TestListener"/>
 </listeners>
 
-<test name="FlightBookingTest">
+<test name="FlightTests">
 
 <classes>
 
 <class name="tests.FlightBookingTest"/>
+<class name="tests.InvalidBookingTest"/>
 
 </classes>
 

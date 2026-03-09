@@ -16,14 +16,19 @@ ExtentReports extent = ExtentManager.getReport();
 public static ThreadLocal<ExtentTest> test = new ThreadLocal<>();
 
 public void onTestStart(ITestResult result) {
+	
+	String browser =
+			result.getTestContext().getCurrentXmlTest().getParameter("browser");
 
-ExtentTest extentTest = extent.createTest(
-        result.getName(),
-        "Verify end-to-end flight booking functionality");
+	ExtentTest extentTest = extent.createTest(
+	        result.getName() + " - " + browser,
+	        "Verify end-to-end flight booking functionality");
 
 extentTest.assignAuthor("Kumar Prakhar");
 
 extentTest.assignCategory("Flight Booking Test");
+
+extentTest.info("Browser: " + browser);
 
 extentTest.info("Test Started");
 

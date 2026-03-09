@@ -39,7 +39,6 @@ extent.attachReporter(spark);
 extent.setSystemInfo("Tester", "Kumar Prakhar");
 extent.setSystemInfo("Project", "Flight Booking Automation");
 extent.setSystemInfo("Environment", "QA");
-extent.setSystemInfo("Browser", "Chrome");
 extent.setSystemInfo("Automation Tool", "Selenium");
 extent.setSystemInfo("Framework", "TestNG + Maven");
 

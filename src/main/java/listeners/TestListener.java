@@ -15,18 +15,23 @@ public class TestListener implements ITestListener {
 
     @Override
     public void onTestStart(ITestResult result) {
+
         String browser = System.getProperty("browser");
+
         if(browser == null){
             browser = result.getTestContext().getCurrentXmlTest().getParameter("browser");
             if(browser == null) browser = "Chrome";
         }
 
+        String description = result.getMethod().getDescription();
+
         ExtentTest extentTest = extent.createTest(
                 result.getName() + " - " + browser,
-                "Verify end-to-end flight booking functionality");
+                description
+        );
 
         extentTest.assignAuthor("Kumar Prakhar");
-        extentTest.assignCategory("Flight Booking Test");
+        extentTest.assignCategory("Flight Booking Automation");
         extentTest.info("Browser: " + browser);
         extentTest.info("Test Started");
 
@@ -35,14 +40,26 @@ public class TestListener implements ITestListener {
 
     @Override
     public void onTestSuccess(ITestResult result) {
-        String screenshotPath = ScreenshotUtil.captureScreenshot(DriverFactory.getDriver(), result.getName());
-        test.get().pass("Test Passed").addScreenCaptureFromPath(screenshotPath);
+
+        String screenshotPath = ScreenshotUtil.captureScreenshot(
+                DriverFactory.getDriver(),
+                result.getName()
+        );
+
+        test.get().pass("Test Passed")
+                .addScreenCaptureFromPath(screenshotPath);
     }
 
     @Override
     public void onTestFailure(ITestResult result) {
-        String screenshotPath = ScreenshotUtil.captureScreenshot(DriverFactory.getDriver(), result.getName());
-        test.get().fail(result.getThrowable()).addScreenCaptureFromPath(screenshotPath);
+
+        String screenshotPath = ScreenshotUtil.captureScreenshot(
+                DriverFactory.getDriver(),
+                result.getName()
+        );
+
+        test.get().fail(result.getThrowable())
+                .addScreenCaptureFromPath(screenshotPath);
     }
 
     @Override

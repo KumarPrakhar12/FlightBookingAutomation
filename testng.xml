@@ -12,6 +12,9 @@
         <classes>
             <class name="tests.FlightBookingTest"/>
             <class name="tests.InvalidBookingTest"/>
+            <class name="tests.EmptyAddressTest"/>
+            <class name="tests.InvalidCardTest"/>
+            <class name="tests.PassengerValidationTest"/>
         </classes>
     </test>
 
@@ -21,6 +24,9 @@
         <classes>
             <class name="tests.FlightBookingTest"/>
             <class name="tests.InvalidBookingTest"/>
+            <class name="tests.EmptyAddressTest"/>
+            <class name="tests.InvalidCardTest"/>
+            <class name="tests.PassengerValidationTest"/>
         </classes>
     </test>
 

@@ -2,7 +2,6 @@ package listeners;
 
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-
 import com.aventstack.extentreports.*;
 
 import base.DriverFactory;
@@ -16,10 +15,11 @@ public class TestListener implements ITestListener {
 
     @Override
     public void onTestStart(ITestResult result) {
-    	String browser = result.getTestContext().getCurrentXmlTest().getParameter("browser");
-    	if(browser == null || browser.isEmpty()){
-    	    browser = "Chrome"; // default
-    	}
+        String browser = System.getProperty("browser");
+        if(browser == null){
+            browser = result.getTestContext().getCurrentXmlTest().getParameter("browser");
+            if(browser == null) browser = "Chrome";
+        }
 
         ExtentTest extentTest = extent.createTest(
                 result.getName() + " - " + browser,

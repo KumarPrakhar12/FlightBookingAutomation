@@ -14,27 +14,47 @@ public class DriverFactory {
 
     public static WebDriver initDriver(String browser) {
 
+        boolean headless = Boolean.parseBoolean(System.getProperty("headless", "false"));
+
         if (browser.equalsIgnoreCase("chrome")) {
+
+            System.out.println("Starting Chrome Browser");
+
             WebDriverManager.chromedriver().setup();
+
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--start-maximized");
-            // Headless option for Jenkins
-            if(System.getProperty("jenkins") != null) options.addArguments("--headless");
+            options.addArguments("--disable-notifications");
+
+            if (headless) {
+                options.addArguments("--headless=new");
+                options.addArguments("--window-size=1920,1080");
+            }
+
             driver.set(new ChromeDriver(options));
-        } 
+        }
+
         else if (browser.equalsIgnoreCase("firefox")) {
+
+            System.out.println("Starting Firefox Browser");
+
             WebDriverManager.firefoxdriver().setup();
+
             FirefoxOptions options = new FirefoxOptions();
-            options.addArguments("--width=1920");
-            options.addArguments("--height=1080");
-            options.addArguments("--disable-gpu");
-            options.addArguments("--ignore-certificate-errors");
-            // Headless option for Jenkins
-            if(System.getProperty("jenkins") != null) options.addArguments("--headless");
+
+            if (headless) {
+                options.addArguments("--headless");
+            }
+
             driver.set(new FirefoxDriver(options));
-        } 
+
+            driver.get().manage().window().maximize();
+        }
+
         else {
-            System.out.println("Invalid browser! Launching Chrome by default.");
+
+            System.out.println("Invalid browser. Launching Chrome by default.");
+
             WebDriverManager.chromedriver().setup();
             driver.set(new ChromeDriver());
         }
@@ -47,8 +67,11 @@ public class DriverFactory {
     }
 
     public static void quitDriver() {
-        if(driver.get() != null){
+
+        if (driver.get() != null) {
+
             driver.get().quit();
+
             driver.remove();
         }
     }

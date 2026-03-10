@@ -7,7 +7,7 @@ import base.BaseTest;
 import pages.*;
 import utils.ExcelReader;
 
-//@Listeners(listeners.TestListener.class)
+@Listeners(listeners.TestListener.class)
 
 public class FlightBookingTest extends BaseTest {
 

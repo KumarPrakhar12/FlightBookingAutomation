@@ -43,8 +43,10 @@ public class DriverFactory {
             FirefoxOptions options = new FirefoxOptions();
 
             if (headless) {
-                options.addArguments("--headless");
+                options.addArguments("-headless");   // IMPORTANT for Jenkins
             }
+
+            options.addPreference("dom.webnotifications.enabled", false);
 
             driver.set(new FirefoxDriver(options));
 

@@ -214,18 +214,18 @@
             <pre>
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
-&lt;suite thread-count=&quot;2&quot; parallel=&quot;tests&quot; name=&quot;FlightBookingSuite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
+&lt;suite name=&quot;FlightBookingSuite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;listeners&gt;
     &lt;listener class-name=&quot;listeners.TestListener&quot;/&gt;
   &lt;/listeners&gt;
-  &lt;test thread-count=&quot;2&quot; parallel=&quot;tests&quot; name=&quot;ChromeTests&quot;&gt;
+  &lt;test thread-count=&quot;5&quot; name=&quot;ChromeTests&quot;&gt;
     &lt;parameter name=&quot;browser&quot; value=&quot;chrome&quot;/&gt;
     &lt;classes&gt;
       &lt;class name=&quot;tests.FlightBookingTest&quot;/&gt;
       &lt;class name=&quot;tests.InvalidBookingTest&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- ChromeTests --&gt;
-  &lt;test thread-count=&quot;2&quot; parallel=&quot;tests&quot; name=&quot;FirefoxTests&quot;&gt;
+  &lt;test thread-count=&quot;5&quot; name=&quot;FirefoxTests&quot;&gt;
     &lt;parameter name=&quot;browser&quot; value=&quot;firefox&quot;/&gt;
     &lt;classes&gt;
       &lt;class name=&quot;tests.FlightBookingTest&quot;/&gt;
@@ -274,29 +274,29 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(6);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'bookingWithoutNameTest')
-data.setCell(0, 2, 'tests.InvalidBookingTest')
-data.setCell(0, 3, 16168);
+data.setCell(0, 1, 'bookFlight')
+data.setCell(0, 2, 'tests.FlightBookingTest')
+data.setCell(0, 3, 14040);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'bookFlight')
-data.setCell(1, 2, 'tests.FlightBookingTest')
-data.setCell(1, 3, 15579);
+data.setCell(1, 1, 'bookingWithoutNameTest')
+data.setCell(1, 2, 'tests.InvalidBookingTest')
+data.setCell(1, 3, 13954);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'bookingWithoutNameTest')
-data.setCell(2, 2, 'tests.InvalidBookingTest')
-data.setCell(2, 3, 14745);
+data.setCell(2, 1, 'bookFlight')
+data.setCell(2, 2, 'tests.FlightBookingTest')
+data.setCell(2, 3, 13543);
 data.setCell(3, 0, 3)
 data.setCell(3, 1, 'bookFlight')
 data.setCell(3, 2, 'tests.FlightBookingTest')
-data.setCell(3, 3, 14466);
+data.setCell(3, 3, 13368);
 data.setCell(4, 0, 4)
-data.setCell(4, 1, 'bookFlight')
-data.setCell(4, 2, 'tests.FlightBookingTest')
-data.setCell(4, 3, 14347);
+data.setCell(4, 1, 'bookingWithoutNameTest')
+data.setCell(4, 2, 'tests.InvalidBookingTest')
+data.setCell(4, 3, 13324);
 data.setCell(5, 0, 5)
 data.setCell(5, 1, 'bookFlight')
 data.setCell(5, 2, 'tests.FlightBookingTest')
-data.setCell(5, 3, 13405);
+data.setCell(5, 3, 12580);
 window.suiteTableData['FlightBookingSuite']= { tableData: data, tableDiv: 'times-div-FlightBookingSuite'}
 return data;
 }
@@ -332,82 +332,82 @@ return data;
                 <span class="method-name">setup(chrome)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-method before -->
-              <div class="configuration-method before">
-                <span class="method-name">setup(firefox)</span>
-                <span class="method-start">1 ms</span>
-              </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">bookFlight(Boston, London, John, Street1, NY, 1111.0)</span>
-                <span class="method-start">6813 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">bookFlight(Boston, London, John, Street1, NY, 1111.0)</span>
-                <span class="method-start">12341 ms</span>
+                <span class="method-start">5117 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">22520 ms</span>
+                <span class="method-start">18793 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setup(chrome)</span>
-                <span class="method-start">22783 ms</span>
+                <span class="method-start">19278 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">bookFlight(Paris, Rome, Mike, Street2, CA, 2222.0)</span>
-                <span class="method-start">25440 ms</span>
+                <span class="method-start">21859 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">26858 ms</span>
-              </div> <!-- configuration-method after -->
-              <div class="configuration-method before">
-                <span class="method-name">setup(firefox)</span>
-                <span class="method-start">28373 ms</span>
-              </div> <!-- configuration-method before -->
-              <div class="test-method">
-                <span class="method-name">bookFlight(Paris, Rome, Mike, Street2, CA, 2222.0)</span>
-                <span class="method-start">34864 ms</span>
-              </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">tearDown</span>
-                <span class="method-start">39951 ms</span>
+                <span class="method-start">36120 ms</span>
               </div> <!-- configuration-method after -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">tests.InvalidBookingTest</div> <!-- chronological-class-name -->
               <div class="configuration-method before">
                 <span class="method-name">setup(chrome)</span>
-                <span class="method-start">40274 ms</span>
+                <span class="method-start">37036 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">bookingWithoutNameTest</span>
-                <span class="method-start">43307 ms</span>
+                <span class="method-start">40744 ms</span>
               </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">54181 ms</span>
+              </div> <!-- configuration-method after -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">tests.FlightBookingTest</div> <!-- chronological-class-name -->
+              <div class="configuration-method before">
+                <span class="method-name">setup(firefox)</span>
+                <span class="method-start">54866 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">bookFlight(Boston, London, John, Street1, NY, 1111.0)</span>
+                <span class="method-start">62926 ms</span>
+              </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">48314 ms</span>
+                <span class="method-start">75542 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">setup(firefox)</span>
+                <span class="method-start">76593 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">bookFlight(Paris, Rome, Mike, Street2, CA, 2222.0)</span>
+                <span class="method-start">83431 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">96882 ms</span>
               </div> <!-- configuration-method after -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">tests.InvalidBookingTest</div> <!-- chronological-class-name -->
               <div class="configuration-method before">
                 <span class="method-name">setup(firefox)</span>
-                <span class="method-start">49482 ms</span>
+                <span class="method-start">98103 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">bookingWithoutNameTest</span>
-                <span class="method-start">55188 ms</span>
+                <span class="method-start">103879 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">59723 ms</span>
-              </div> <!-- configuration-method after -->
-              <div class="configuration-method after">
-                <span class="method-name">tearDown</span>
-                <span class="method-start">69984 ms</span>
+                <span class="method-start">117865 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

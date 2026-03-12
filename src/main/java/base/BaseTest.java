@@ -30,6 +30,8 @@ public class BaseTest {
     @AfterMethod
     public void tearDown() {
     	System.out.println("New Change");
+    	System.out.println("New Change for demo");
+    	
 
         DriverFactory.quitDriver();
     }

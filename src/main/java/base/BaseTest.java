@@ -23,10 +23,13 @@ public class BaseTest {
         driver.get("https://blazedemo.com");
 
         ScreenshotUtil.captureScreenshot(driver, "Application_Launched");
+        //This calls a utility class.
+        //
     }
 
     @AfterMethod
     public void tearDown() {
+    	System.out.println("New Change");
 
         DriverFactory.quitDriver();
     }
